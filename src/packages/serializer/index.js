@@ -626,7 +626,7 @@ class Serializer<T: Model> {
                   })
                 )
               }
-            } else if (related && related.id) {
+            } else if (related && related.id != null) {
               return this.formatRelationship({
                 domain,
                 included,
