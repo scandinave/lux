@@ -3,15 +3,11 @@
 [![CircleCI branch](https://img.shields.io/circleci/project/github/postlight/lux/master.svg?style=flat-square)](https://circleci.com/gh/postlight/lux/tree/master) [![AppVeyor](https://img.shields.io/appveyor/ci/zacharygolba/lux/master.svg?style=flat-square)](https://ci.appveyor.com/project/zacharygolba/lux/branch/master) [![Codecov branch](https://img.shields.io/codecov/c/github/postlight/lux/master.svg?style=flat-square)](https://codecov.io/gh/postlight/lux)
  [![David](https://img.shields.io/david/postlight/lux.svg?style=flat-square)](https://david-dm.org/postlight/lux) [![npm](https://img.shields.io/npm/v/lux-framework.svg?style=flat-square)](https://www.npmjs.com/package/lux-framework) [![Gitter](https://img.shields.io/gitter/room/postlight/lux.svg?style=flat-square)](https://gitter.im/postlight/lux)
 
-A MVC style framework for building highly performant, large scale JSON APIs that anybody who knows the JavaScript language and its modern features will understand.
-
-\* _Inspired by [Rails](https://github.com/rails/rails/), [Ember](http://emberjs.com/), and [React](https://facebook.github.io/react/)._
+Lux by [Postlight](https://postlight.com) is an MVC-style framework for building highly performant, large scale JSON APIs that anybody who knows the JavaScript language and its modern features will understand,inspired by [Rails](https://github.com/rails/rails/), [Ember](http://emberjs.com/), and [React](https://facebook.github.io/react/). Read about it in [this handy introduction](https://postlight.com/trackchanges/not-another-node-js-framework).
 
 **Disclaimer:**
 
 This isn't another wrapper around [Express](http://expressjs.com/) or a framework for building frameworks. This also isn't a replacement for server-side frameworks that render DHTML.
-
-[Check out the Medium Article!](https://trackchanges.postlight.com/not-another-node-js-framework-33103ebeedf8)
 
 ## What?
 
@@ -154,3 +150,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 *   [JSON API](http://jsonapi.org/)
 *   [Knex.js](http://knexjs.org/)
 *   [Jest](https://facebook.github.io/jest/)
+
+---
+
+🔬 A Labs project from your friends at [Postlight](https://postlight.com). Happy coding!
