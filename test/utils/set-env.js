@@ -1,4 +1,4 @@
-/* @flow */
+
 
 type Environment = 'development'
                  | 'production'

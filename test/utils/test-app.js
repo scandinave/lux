@@ -1,8 +1,8 @@
-/* @flow */
+
 
 import { join as joinPath } from 'path'
 
-import type Application from '../../src/packages/application'
+import Application from '../../src/packages/application'
 
 export function getTestApp(): Promise<Application> {
   const path = joinPath(__dirname, '..', 'test-app')

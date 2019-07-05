@@ -1,9 +1,6 @@
 {
   "env": {
     "development": {
-      "presets": [
-        "lux"
-      ]
     },
     "test": {
       "plugins": [
@@ -18,9 +15,6 @@
       ]
     },
     "production": {
-      "presets": [
-        "lux"
-      ],
       "minified": true,
       "comments": false
     }
