@@ -3,10 +3,7 @@
 /**
  * @private
  */
-export default function insertValues(
-  strings: Array<string>,
-  ...values: Array<unknown>
-) {
+export default function insertValues(strings: Array<string>, ...values: Array<any>) {
   if (values.length) {
     return strings.reduce((result, part, idx): string => {
       let value = values[idx]

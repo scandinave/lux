@@ -53,7 +53,13 @@ class Request {
   defaultParams: ObjectMap<any>;
 
   constructor(options: Options) {
-    Object.assign(this, options)
+    this.url = options.url;
+    this.params = options.url;
+    this.logger = options.logger;
+    this.method = options.method;
+    this.headers = options.headers;
+    this.encrypted = options.encrypted;
+    this.defaultParams = options.defaultParams;
   }
 }
 

@@ -1,5 +1,3 @@
-
-
 type ServerError<T extends Error> = T & {
   statusCode: number;
 }
@@ -7,10 +5,8 @@ type ServerError<T extends Error> = T & {
 /**
  * @private
  */
-export default function createServerError<T extends Error>(
-  Source: T,
-  statusCode: number
-): Class<ServerError<T>> {
+export default function createServerError<T extends Error>(Source: T, statusCode: number): ServerError<T> {
+
   const Target = class extends Source {
     statusCode: number;
   }
@@ -23,6 +19,5 @@ export default function createServerError<T extends Error>(
     value: statusCode,
   })
 
-  // $FlowIgnore
   return Target
 }

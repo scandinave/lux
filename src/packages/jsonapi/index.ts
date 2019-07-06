@@ -2,14 +2,9 @@
 
 import { ObjectMap } from '../../interfaces'
 
-type Value =
-  | string
-  | number
-  | boolean
-  | BaseObject
-  | Array<BaseObject>
+type Value = string | number | boolean | BaseObject | Array<BaseObject>
 
-interface BaseObject extends Array<Value> = ObjectMap<Value | null | undefined> & {
+interface BaseObject extends ObjectMap<Value | null | undefined> {
   meta?: BaseObject;
 }
 
