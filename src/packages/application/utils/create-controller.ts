@@ -11,7 +11,7 @@ import Serializer from '../../serializer'
 import { Bundle$Namespace } from '../../loader' // eslint-disable-line max-len, no-duplicate-imports
 
 export default function createController<T: Controller>(
-  constructor: Class<T>,
+  constructor: T,
   opts: {
     key: string;
     store: Database;

@@ -25,14 +25,15 @@ export default (name: string, attrs: Array<string>): string => {
     attrs
       .filter(attr => /^(\w|-)+:(\w|-)+$/g.test(attr))
       .map(attr => attr.split(':'))
-      .reduce((obj, parts) => {
-        const [, type] = parts
-        let [attr] = parts
+      .reduce((accumulator, currentValue) => {
+        const [, type] = currentValue
+        let [attr] = currentValue
         let {
           hasOne,
           hasMany,
+          belongsTo,
           attributes
-        } = obj
+        } = accumulator
 
         attr = `${indent(8)}'${camelize(underscore(attr), true)}'`
 
@@ -52,14 +53,15 @@ export default (name: string, attrs: Array<string>): string => {
 
         return {
           attributes,
+          belongsTo,
           hasOne,
           hasMany
         }
       }, {
-        attributes: [],
-        belongsTo: [],
-        hasOne: [],
-        hasMany: []
+        attributes: [] as string[],
+        belongsTo: [] as string[],
+        hasOne: [] as string[],
+        hasMany: [] as string[]
       })
   ).reduce((result, group, index) => {
     const [key] = group

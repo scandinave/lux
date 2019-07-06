@@ -15,8 +15,8 @@ import { Document, Resource, Relationship } from '../jsonapi'
 import { ObjectMap } from '../../interfaces'
 
 type Options<T> = {
-  model?: Class<T>,
-  parent?: ?Serializer<*>,
+  model?: T,
+  parent?: Serializer<any>,
   namespace?: string,
 }
 
@@ -338,7 +338,7 @@ type Options<T> = {
  * @class Serializer
  * @public
  */
-class Serializer<T: Model> {
+class Serializer<T extends Model> {
   /**
    * An Array of the `hasOne` or `belongsTo` relationships on a Serializer
    * instance's Model to include in the
@@ -405,17 +405,17 @@ class Serializer<T: Model> {
    * @type {Model}
    * @private
    */
-  model: Class<T>;
+  model: T;
 
   /**
    * A reference to the root Serializer for the namespace that a Serializer
    * instance is a member of.
    *
    * @property parent
-   * @type {?Serializer}
+   * @type {Serializer}
    * @private
    */
-  parent: ?Serializer<*>;
+  parent?: Serializer<any>;
 
   /**
    * The namespace that a Serializer instance is a member of.
@@ -640,7 +640,7 @@ class Serializer<T: Model> {
             }
           })()
         }), {})
-      )
+      ) as ObjectMap<Relationship>
     }
 
     if (Object.keys(relationships).length) {

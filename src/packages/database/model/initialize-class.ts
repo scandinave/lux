@@ -236,7 +236,7 @@ export default async function initializeClass<T: Class<Model>>({
         relatedModel = store.modelFor(relatedName)
       }
 
-      if (typeof through === 'string') {
+      if (Through === 'string') {
         through = store.modelFor(through)
         foreignKey = `${singularize(underscore(inverse))}_id`
       } else {

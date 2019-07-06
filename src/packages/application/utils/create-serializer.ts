@@ -5,10 +5,10 @@ import { posix } from 'path'
 import { deepFreezeProps } from '../../freezeable'
 import { tryCatchSync } from '../../../utils/try-catch'
 import Serializer from '../../serializer' // eslint-disable-line max-len, no-unused-vars
-import { Application$factoryOpts } from '../index'
+import Application$factoryOpts from '../index'
 
-export default function createSerializer<T: Serializer<*>>(
-  constructor: Class<T>,
+export default function createSerializer<T extends Serializer<any>>(
+  constructor: T,
   opts: Application$factoryOpts<T>
 ): T {
   const { key, store } = opts

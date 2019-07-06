@@ -13,7 +13,7 @@ import { Builder$Construct } from './interfaces'
  * @private
  */
 export function build<T>(
-  group: Bundle$Namespace<Class<T>>,
+  group: Bundle$Namespace<T>,
   construct: Builder$Construct<T>
 ): Bundle$Namespace<T> {
   return chain(group)

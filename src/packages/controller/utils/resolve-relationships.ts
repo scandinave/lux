@@ -8,7 +8,7 @@ import { Model } from '../../database'
  * @private
  */
 export default function resolveRelationships<T: Model>(
-  model: Class<T>,
+  model: T,
   relationships: Object = {}
 ): Object {
   return entries(relationships).reduce((obj, [key, value]) => {

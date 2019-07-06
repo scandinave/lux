@@ -4,28 +4,28 @@ import entries from '../../../utils/entries'
 import { FreezeableMap } from '../../freezeable'
 import { ObjectMap } from '../../../interfaces'
 
-type HandleChange = (type: 'SET' | 'DELETE', data: [string, ?string]) => void
+type HandleChange = (type: 'SET' | 'DELETE', data: [string, string?]) => void
 
 export class Headers extends FreezeableMap<string, string> {
   constructor(value: ObjectMap<string> = {}) {
     super(entries(value))
   }
 
-  get(key: string): void | string {
-    return super.get(String(key).toLowerCase())
+  get(key: string): undefined | string {
+    return super.get(key.toLowerCase())
   }
 
   has(key: string): boolean {
-    return super.has(String(key).toLowerCase())
+    return super.has(key.toLowerCase())
   }
 
-  set(key: string, value: string): this {
-    super.set(String(key).toLowerCase(), value)
+  set(key: string, value: string): Headers {
+    super.set(key.toLowerCase(), value)
     return this
   }
 
   delete(key: string): boolean {
-    return super.delete(String(key).toLowerCase())
+    return super.delete(key.toLowerCase())
   }
 }
 
@@ -37,13 +37,13 @@ export class ResponseHeaders extends Headers {
     this.handleChange = handleChange
   }
 
-  set(key: string, value: string): this {
+  set(key: string, value: string): Headers {
     this.handleChange('SET', [key, value])
     return super.set(key, value)
   }
 
   delete(key: string): boolean {
-    this.handleChange('DELETE', [key, null])
+    this.handleChange('DELETE', [key, undefined])
     return super.delete(key)
   }
 }

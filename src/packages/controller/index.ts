@@ -32,7 +32,7 @@ export type AfterAction<T> = (
 ) => Promise<T>
 
 export type Options<T: Model> = {
-  model?: Class<T>,
+  model?: T,
   namespace?: string,
   serializer?: Serializer<T>,
 }

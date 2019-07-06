@@ -19,7 +19,7 @@ class Query<+T: any> extends Promise {
   /**
    * @private
    */
-  model: Class<Model>;
+  model: typeof Model;
 
   /**
    * @private
@@ -29,7 +29,7 @@ class Query<+T: any> extends Promise {
   /**
    * @private
    */
-  snapshots: Array<Array<any>>;
+  snapshots: Array<Array<T>>;
 
   /**
    * @private
@@ -46,7 +46,7 @@ class Query<+T: any> extends Promise {
    */
   relationships: Object;
 
-  constructor(model: Class<Model>) {
+  constructor(model: typeof Model) {
     let resolve
     let reject
 

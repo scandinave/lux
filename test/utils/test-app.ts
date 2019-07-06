@@ -16,7 +16,7 @@ export function getTestApp(): Promise<Application> {
   }: {
     config: Object;
     database: Object;
-    Application: Class<Application>;
+    Application: typeof Application;
     // $FlowIgnore
   } = require('../test-app/dist/bundle')
 

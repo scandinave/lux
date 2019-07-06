@@ -4,7 +4,7 @@ import { MIME_TYPE } from '../../jsonapi'
 import { Headers, ResponseHeaders } from '../utils/headers'
 
 describe('module "adapters/headers"', () => {
-  let subject
+  let subject: Headers
 
   describe('util Headers', () => {
     beforeEach(() => {
@@ -24,25 +24,39 @@ describe('module "adapters/headers"', () => {
       })
     });
 
-    ['get', 'has'].forEach(method => {
-      describe(`#${method}()`, () => {
+    describe(`#get()`, () => {
         const key = 'Accept'
-        const value = method === 'get' ? MIME_TYPE : true
+        const value = true
 
         beforeEach(() => {
-          subject.set(key, MIME_TYPE)
+            subject.set(key, MIME_TYPE)
         })
 
         test('returns the correct value for the given key', () => {
-          // $FlowIgnore
-          expect(subject[method](key)).toBe(value)
+            expect(subject.get(key)).toBe(value)
         })
 
         test('is not case sensitive', () => {
-          // $FlowIgnore
-          expect(subject[method](key.toUpperCase())).toBe(value)
+            expect(subject.get(key.toUpperCase())).toBe(value)
         })
-      })
+    })
+
+    describe(`#has()`, () => {
+        const key = 'Accept'
+        const value = MIME_TYPE
+
+        beforeEach(() => {
+            subject.set(key, MIME_TYPE)
+        })
+
+        test('returns the correct value for the given key', () => {
+            const test: (keyof Headers) = 'get';
+            expect(subject[test](key)).toBe(value)
+        })
+
+        test('is not case sensitive', () => {
+            expect(subject.get(key.toUpperCase())).toBe(value)
+        })
     })
 
     describe('#set()', () => {

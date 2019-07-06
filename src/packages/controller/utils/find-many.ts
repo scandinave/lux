@@ -10,7 +10,7 @@ import paramsToQuery from './params-to-query'
  * @private
  */
 export default function findMany<T: Model>(
-  model: Class<T>,
+  model: T,
   req: Request
 ): Query<Array<Model>> {
   const params = merge(req.defaultParams, req.params)

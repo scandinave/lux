@@ -9,9 +9,9 @@ describe('module "database/model"', () => {
   describe('class Model', () => {
     let app
     let store
-    let User: Class<Model>
-    let Image: Class<Model>
-    let Comment: Class<Model>
+    let User: typeof Model
+    let Image: typeof Model
+    let Comment: typeof Model
 
     beforeAll(async () => {
       app = await getTestApp();

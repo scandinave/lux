@@ -15,7 +15,7 @@ export default async function buildResults<T: Model>({
     records,
     relationships
 }: {
-    model: Class<T>,
+    model: T,
     records: Promise<Array<Object>>,
     relationships: Object
 }): Promise<Array<T>> {

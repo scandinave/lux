@@ -2,8 +2,6 @@
 
 import { ObjectMap } from '../../interfaces'
 
-/* eslint-disable no-use-before-define */
-
 type Value =
   | string
   | number
@@ -11,11 +9,9 @@ type Value =
   | BaseObject
   | Array<BaseObject>
 
-type BaseObject = ObjectMap<?Value> & {
+interface BaseObject extends Array<Value> = ObjectMap<Value | null | undefined> & {
   meta?: BaseObject;
 }
-
-/* eslint-enable no-use-before-define */
 
 export type Link = {
   href: string;
@@ -23,8 +19,8 @@ export type Link = {
 }
 
 export type Links = {
-  self?: ?(string | Link);
-  related?: ?(string | Link);
+  self?: (string | Link);
+  related?: (string | Link);
 }
 
 export type Version =
@@ -38,8 +34,8 @@ export type Identifier = {
 
 export type Relationship = {
   data: Identifier;
-  meta?: BaseObject;
-  links?: Links;
+  meta?: BaseObject | null | undefined;
+  links?: Links | null | undefined;
 }
 
 export type Resource = {
@@ -47,7 +43,7 @@ export type Resource = {
   type: string;
   links?: Links;
   attributes?: BaseObject;
-  relationships?: ObjectMap<?Relationship>;
+  relationships?: ObjectMap<Relationship | null | undefined>;
 }
 
 export type ErrorData = {
@@ -69,10 +65,10 @@ export type ErrorData = {
 export type Document = {
   data?: Resource | Array<Resource>;
   links?: Links & {
-    first?: ?(string | Link);
-    last?: ?(string | Link);
-    prev?: ?(string | Link);
-    next?: ?(string | Link);
+    first?: (string | Link) | null | undefined;
+    last?: (string | Link) | null | undefined;
+    prev?: (string | Link) | null | undefined;
+    next?: (string | Link) | null | undefined;
   };
   errors?: Array<ErrorData>;
   included?: Array<Resource>;
